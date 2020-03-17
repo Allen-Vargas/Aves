@@ -23,7 +23,8 @@ public class Parrot {
             	VelocityEuropean velocity =  new VelocityEuropean();
             	return velocity.calculateVelocity(this);
             case AFRICAN:
-                return Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
+            	VelocityAfrican velocity2 =  new VelocityAfrican();
+                return velocity2.calculateVelocity(this);
             case NORWEGIAN_BLUE:
                 return (isNailed) ? 0 : getBaseSpeed(voltage);
         }
@@ -41,5 +42,16 @@ public class Parrot {
     public double getBaseSpeed() {
         return 12.0;
     }
+    
+    public int getNumberOfCoconuts() {
+    	return numberOfCoconuts;
+    }
 
+    public double getVoltage() {
+    	return voltage;
+    }
+    
+    public boolean getisNailed() {
+    	return isNailed;
+    }
 }
