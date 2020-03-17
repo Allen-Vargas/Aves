@@ -1,7 +1,5 @@
 package parrot;
 
-import store.DiscountCalculator;
-
 public class Parrot {
 
     private ParrotTypeEnum type;
@@ -19,9 +17,11 @@ public class Parrot {
 
     public double getSpeed() {
     	VelocityCalculator velocityCalculator = null;
+    	
         switch(type) {
             case EUROPEAN:
-                return getBaseSpeed();
+            	VelocityEuropean velocity =  new VelocityEuropean();
+            	return velocity.calculateVelocity(this);
             case AFRICAN:
                 return Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
             case NORWEGIAN_BLUE:
@@ -30,15 +30,15 @@ public class Parrot {
         throw new RuntimeException("Should be unreachable");
     }
 
-    private double getBaseSpeed(double voltage) {
+    public double getBaseSpeed(double voltage) {
         return Math.min(24.0, voltage*getBaseSpeed());
     }
 
-    private double getLoadFactor() {
+    public double getLoadFactor() {
         return 9.0;
     }
 
-    private double getBaseSpeed() {
+    public double getBaseSpeed() {
         return 12.0;
     }
 
