@@ -1,5 +1,7 @@
 package parrot;
 
+import store.DiscountCalculator;
+
 public class Parrot {
 
     private ParrotTypeEnum type;
@@ -16,6 +18,7 @@ public class Parrot {
     }
 
     public double getSpeed() {
+    	VelocityCalculator velocityCalculator = null;
         switch(type) {
             case EUROPEAN:
                 return getBaseSpeed();
@@ -38,6 +41,5 @@ public class Parrot {
     private double getBaseSpeed() {
         return 12.0;
     }
-
 
 }
