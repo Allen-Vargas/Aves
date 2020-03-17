@@ -16,8 +16,7 @@ public class Parrot {
     }
 
     public double getSpeed() {
-    	double velocity;
-    	VelocityCalculator velocityCalculator = createVelocityCalculator();
+    	VelocityCalculator velocityCalculator = null;
     	switch(type) {
         case EUROPEAN:
         	velocityCalculator =  new VelocityEuropean();
